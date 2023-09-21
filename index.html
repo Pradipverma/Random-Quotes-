@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color:#00f6ce; background-color:#ff7f6a; border:5px groove #b5ffaa; border-radius:15px; text-align:center">Random Quotes </h1>
+       <div style=" height:250px; width:90%px; background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm9vfEMA94_ZAICe520W5vao6y0ipYHQr1oA&usqp=CAU); ">
+   <p style="position : relative; text-align:center; top:50%; transform: translateY(-50%);font-weight: bold;font-size:20px"> </p>
+      </div>  <button style="display:block; margin:auto; padding:16px; font-size:20px; color:#ff6940; border:3px outset #ffd240; border-radius:10px; margin-top:10px">Get Quotes</button>
+       
+    </div>
+    <h1 style="text-align:center; font-family: fantasy; background-image: linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% );">Made By -Pradip Verma💗 </h1>
+    <script>
+        let url="https://hindi-quotes.vercel.app/random";
+        async function newf(){
+            try{
+                let rel= await fetch(url)
+                let data = await rel.json()
+                return data.quote
+                }
+        catch (error){
+            console.log("err",error)
+            }           
+        }
+      let btn=document.querySelector("button")
+      btn.addEventListener("click" ,async ()=>{
+          let joke= await newf();
+          console.log(joke)
+          let getj=document.querySelector("p")
+          getj.innerText=joke
+                    })
+     
+      
+    </script> 
+</body>
+</html>
